@@ -14,22 +14,33 @@
             font-family: sans-serif;
         
         }
+
+        .color-container{
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            border-radius: 4px;
+        }
+
+        a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('todos') }}">Todos</a>
+            <a class="navbar-brand" href="{{ route('todos') }}">Todos </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ route('todos') }}">Tareas</a>
+                <a class="nav-link {{str_contains('todos',Route::current()->getName())? 'active': ''}}" href="{{ route('todos') }}">Tareas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Categorias</a>
+                    <a class="nav-link {{str_contains('categories', Route::current()->getName()) ? 'active' : '' }}" href="{{ route('categories.index') }}">Categorias</a>
                 </li>
             </ul>
             </div>
